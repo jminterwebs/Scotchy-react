@@ -1,0 +1,2 @@
+class DistillersController < ApplicationController
+end

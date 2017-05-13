@@ -1,0 +1,2 @@
+class Distiller < ApplicationRecord
+end
