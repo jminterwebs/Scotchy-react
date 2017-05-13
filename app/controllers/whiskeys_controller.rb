@@ -35,8 +35,8 @@ class WhiskeysController < ApplicationController
 
     @whiskey.update(whiskey_params)
 
-    if @song.save
-      redirect_to @song
+    if @whiskey.save
+      redirect_to @whiskey
     else
       render :edit
     end
