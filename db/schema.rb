@@ -10,17 +10,25 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170513181416) do
+ActiveRecord::Schema.define(version: 20170513202153) do
 
   create_table "distillers", force: :cascade do |t|
     t.string   "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer  "region_id"
   end
 
   create_table "regions", force: :cascade do |t|
     t.string   "country"
     t.string   "sub_region"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "user_whiskeys", force: :cascade do |t|
+    t.integer  "user_id"
+    t.integer  "whiskey_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
