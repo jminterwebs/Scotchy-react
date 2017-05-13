@@ -34,6 +34,7 @@ gem 'devise'
 gem 'devise_invitable'
 gem 'high_voltage'
 gem 'pundit'
+gem 'omniauth-facebook'
 
 
 group :development, :test do
