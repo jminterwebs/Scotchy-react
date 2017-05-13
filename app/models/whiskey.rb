@@ -4,12 +4,5 @@ class Whiskey < ApplicationRecord
   belongs_to :distiller
 
 
-  def distiller_name(name)
-    self.distiller = Distiller.find_or_create_by(name: name)
-  end
-
-  def distiller_name
-    self.distiller.name if self.distiller
-  end
-
+  
 end
