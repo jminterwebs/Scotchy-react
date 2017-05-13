@@ -1,4 +1,6 @@
-<%= @whiskey.name %>
-<%= @whiskey.distiller_name %>
-<%= @whiskey.country %>
-<%= @whiskey.sub_region %>
+<h1>Distiller: <%= @whiskey.distiller_name %></h1>
+<h2>Whiskey Name: <%= @whiskey.name %></h2>
+  <ul>
+    <li>Country: <%= @whiskey.country %> </li>
+    <li>Region: <%= @whiskey.sub_region %></li>
+  </ul>
