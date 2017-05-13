@@ -1,0 +1,12 @@
+<h3><%= @user.name %></h3>
+
+
+Favorite Whiskeys: <%= @user.whiskeys.count %>
+
+<% @user.whiskeys.each do |whiskey| %>
+  <%= whiskey.distiller.name %>
+  <%= whiskey.name %>
+  <%= whiskey.distiller.region.country %>
+
+
+  <% end %>

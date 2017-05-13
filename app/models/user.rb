@@ -5,6 +5,7 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :trackable, :validatable
   devise :omniauthable, :omniauth_providers => [:facebook]
 
+
   has_many :user_whiskeys
   has_many :whiskeys, through: :user_whiskeys
 
@@ -16,6 +17,7 @@ class User < ApplicationRecord
       user.password = Devise.friendly_token[0,20]
     end
   end
+
 
 
 end

@@ -58,9 +58,9 @@ ActiveRecord::Schema.define(version: 20170513202153) do
   create_table "whiskeys", force: :cascade do |t|
     t.string   "name"
     t.integer  "proof"
-    t.integer  "distller_id"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
+    t.integer  "distiller_id"
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
   end
 
 end
