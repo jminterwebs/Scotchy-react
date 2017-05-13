@@ -1,4 +1,6 @@
 class WhiskeysController < ApplicationController
+  before_action :set_whiskey!, except: [:create, :index, :new]
+
 
 
 
@@ -8,7 +10,7 @@ class WhiskeysController < ApplicationController
 
 
   def show
-    @whiskey = Whiskey.find(params[:id])
+
   end
 
   def new
@@ -26,11 +28,11 @@ class WhiskeysController < ApplicationController
   end
 
   def edit
-    @whiskey = Whiskey.find(params[:id])
+
   end
 
   def update
-    @whiskey = Whiskey.find(params[:id])
+
     @whiskey.update(whiskey_params)
 
     if @song.save
@@ -42,12 +44,15 @@ class WhiskeysController < ApplicationController
 
 
   def destroy
-    @whiskey = Whiskey.find(params[:id])
     @whiskey.destroy
     redirect_to whiskey_path
   end
 
   private
+
+    def set_whiskey!
+      @whiskey = Whiskey.find(params[:id])
+    end
 
     def whiskey_params
       params.require(:whiskey).permit(:name, :proof, :distiller, :region)
