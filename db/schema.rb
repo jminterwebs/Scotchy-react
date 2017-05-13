@@ -13,11 +13,14 @@
 ActiveRecord::Schema.define(version: 20170513181416) do
 
   create_table "distillers", force: :cascade do |t|
+    t.string   "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
   create_table "regions", force: :cascade do |t|
+    t.string   "country"
+    t.string   "sub_region"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -44,8 +47,11 @@ ActiveRecord::Schema.define(version: 20170513181416) do
   end
 
   create_table "whiskeys", force: :cascade do |t|
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.string   "name"
+    t.integer  "proof"
+    t.integer  "distller_id"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
   end
 
 end
