@@ -1,0 +1,7 @@
+<h1><%= @distiller.name %></h1>
+
+<h3>Whiskey's from this Distiller</h3>
+
+      <% @distiller.whiskeys.each do |whiskey|  %>
+       <h4>Name: <%= whiskey.name %>  <%= whiskey.proof %> Proof </h4>
+      <% end %>
