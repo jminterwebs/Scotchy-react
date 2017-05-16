@@ -35,7 +35,7 @@ class DistillersController < ApplicationController
   private
 
   def set_distiller!
-    @distiller = distiller.find(params[:id])
+    @distiller = Distiller.find(params[:id])
   end
 
   def distiller_params
