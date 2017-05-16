@@ -5,7 +5,8 @@ class WhiskeysController < ApplicationController
 
 
   def index
-    @whiskey = Whiskey.all
+    
+    @whiskeys = Whiskey.all
   end
 
 
