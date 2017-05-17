@@ -3,6 +3,7 @@ class DistillersController < ApplicationController
 
 
   def index
+    
     @distillers = Distiller.all
   end
 
