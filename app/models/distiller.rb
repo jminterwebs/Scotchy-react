@@ -5,7 +5,7 @@ class Distiller < ApplicationRecord
 
 
   def country_name
-    self.distiller.region.country
+    self.region.country
   end
 
 
