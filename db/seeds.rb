@@ -30,12 +30,12 @@ end
 end
 
 Whiskey.all.each do |item|
-  item.distiller_id = distiller_random.rand(20)
+  item.distiller_id = distiller_random.rand(1..20)
   item.save
 end
 
 Distiller.all.each do |item|
-  item.region_id = region_random.rand(10)
+  item.region_id = region_random.rand(1..10)
   item.save
 end
 
