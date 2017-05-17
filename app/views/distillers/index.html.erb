@@ -1,0 +1,6 @@
+<h3>List of all current featured Distilleries</h3>
+
+<% @distillers.each do |distiller| %>
+<h4> Name: <%= distiller.name %> || Country: <%= distiller.region.country %> </h4>
+  <% end %>
+<!-- TODO: link everything -->
