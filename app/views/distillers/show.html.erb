@@ -1,9 +1,8 @@
-<h1><%= @distiller.name %></h1>
-
+<h1>Distiller <%= @distiller.name %></h1>
+<h2>Country: <%= link_to @distiller.country_name, region_path(@distiller.region) %></h2>
+  <h3>Region: <%= @distiller.sub_region %></h3>
 <h3>Whiskey's from this Distiller</h3>
 
       <% @distiller.whiskeys.each do |whiskey|  %>
-       <h4>Name: <%= whiskey.name %>  <%= whiskey.proof %> Proof </h4>
+       <h4><%= link_to "Name: #{whiskey.name}", whiskey_path(whiskey) %>  <%= whiskey.proof %>  Proof </h4>
       <% end %>
-
-<!-- TODO: set up links  -->

@@ -8,5 +8,8 @@ class Distiller < ApplicationRecord
     self.region.country
   end
 
+  def sub_region
+    self.region.sub_region
+  end
 
 end
