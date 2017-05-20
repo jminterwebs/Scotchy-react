@@ -16,7 +16,7 @@ class DistillersController < ApplicationController
 
   def new
     @distiller = Distiller.new
-    @distiller.build_region
+    @region = @distiller.build_region
   end
 
   def create

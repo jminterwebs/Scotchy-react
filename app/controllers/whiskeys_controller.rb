@@ -16,8 +16,10 @@ class WhiskeysController < ApplicationController
   end
 
   def new
+
     @whiskey = Whiskey.new
     @distiller = @whiskey.build_distiller
+    @region = @whiskey.distiller.build_region
 
   end
 

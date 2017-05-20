@@ -4,7 +4,7 @@ class Whiskey < ApplicationRecord
   belongs_to :distiller
 
 
-  
+  accepts_nested_attributes_for :distiller
 
 
   def distiller_name
@@ -20,7 +20,7 @@ class Whiskey < ApplicationRecord
   end
 
   def distiller_attributes=(distiller)
-      self.distiller = Distiller.find_or_create_by(name: distiller.name)
+      self.distiller = Distiller.find_or_create_by(name: :name)
       self.distiller.update(distiller)
   end
 

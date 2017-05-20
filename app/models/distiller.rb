@@ -2,7 +2,7 @@ class Distiller < ApplicationRecord
   has_many :whiskeys
   belongs_to :region
 
-  
+  accepts_nested_attributes_for :region
 
   def country_name
     self.region.country
@@ -12,8 +12,8 @@ class Distiller < ApplicationRecord
     self.region.sub_region
   end
 
-  def region_attributes=(country, sub_region)
-    self.region = Region.find_or_create_by(country: region.country, sub_region: region.sub_region)
+  def region_attributes=(region)
+    self.region = Region.find_or_create_by(country: :country, sub_region: :sub_region)
     self.region.update(region)
   end
 
