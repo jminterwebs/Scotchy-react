@@ -1,0 +1,24 @@
+<%= form_for @whiskey do |f| %>
+
+
+
+  <%= f.label :name %>
+  <%= f.text_field :name %>
+
+  <%= f.label :proof%>
+  <%= f.number_field :proof %>
+
+    <% f.fields_for :distiller do |distill|  %>
+      <%= distill.label :name %>
+      <%= distill.text_field :name %>
+
+      <%= distill.fields_for :region do |r| %>
+        <%= r.label :country %>
+        <%= r.text_field :country %>
+
+        <%= r.label :region %>
+        <%= r.text_field :sub_region %>
+      <% end %>
+    <% end %>
+  <%= f.submit %>
+<% end %>
