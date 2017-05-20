@@ -5,8 +5,9 @@ class WhiskeysController < ApplicationController
 
 
   def index
-    
+
     @whiskeys = Whiskey.all
+
   end
 
 
@@ -15,7 +16,8 @@ class WhiskeysController < ApplicationController
   end
 
   def new
-    @whskey = Whiskey.new
+    @whiskey = Whiskey.new
+
   end
 
   def create
@@ -56,7 +58,7 @@ class WhiskeysController < ApplicationController
     end
 
     def whiskey_params
-      params.require(:whiskey).permit(:name, :proof, :distiller, :region)
+      params.require(:whiskey).permit(:name, :proof, distiller_attributes: [:name, region_attributes: [:country, :sub_region]])
     end
 
 end

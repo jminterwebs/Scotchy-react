@@ -4,6 +4,9 @@ class Whiskey < ApplicationRecord
   belongs_to :distiller
 
 
+  
+
+
   def distiller_name
     self.distiller.name
   end
@@ -16,7 +19,10 @@ class Whiskey < ApplicationRecord
     self.distiller.region.sub_region
   end
 
-
+  def distiller_attributes=(distiller)
+      self.distiller = Distiller.find_or_create_by(name: distiller.name)
+      self.distiller.update(distiller)
+  end
 
 
 end

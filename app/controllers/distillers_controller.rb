@@ -3,8 +3,9 @@ class DistillersController < ApplicationController
 
 
   def index
-    
+
     @distillers = Distiller.all
+
   end
 
   def show
@@ -14,11 +15,12 @@ class DistillersController < ApplicationController
   end
 
   def new
-    @distiller = distiller.new
+    @distiller = Distiller.new
+    @distiller.build_region
   end
 
   def create
-    @distiller = distiller.new
+    @distiller = Distiller.new
 
   end
 
@@ -40,7 +42,7 @@ class DistillersController < ApplicationController
   end
 
   def distiller_params
-    params.require(:distiller).permit(:name)
+    params.require(:distiller).permit(:name, :region_attributes[:country, :sub_region])
   end
 
 
