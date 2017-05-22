@@ -7,6 +7,7 @@ class RegionsController < ApplicationController
   end
 
   def show
+    @region = Region.find(params[:id])
   end
 
   def edit
@@ -20,6 +21,7 @@ class RegionsController < ApplicationController
     @region = Region.new
 
   end
+
 
 
   def update

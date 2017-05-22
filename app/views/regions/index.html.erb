@@ -1,0 +1,8 @@
+<h1>Whiskeys by Region</h1>
+
+<% @regions.each do |region| %>
+
+
+  <h3><%= link_to region.country, region_path(region) %></h3>
+
+  <% end %>

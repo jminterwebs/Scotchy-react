@@ -1,0 +1,8 @@
+
+<h1> Country: <%= @region.country %> </h1>
+
+<h3>Distillers</h3>
+<% @region.distillers.each do |distiller| %>
+  <%= link_to distiller.name, distiller_path(distiller) %>
+
+  <% end %>
