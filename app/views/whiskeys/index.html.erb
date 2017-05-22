@@ -1,4 +1,7 @@
+
+<h1>Whiskeys by Name</h1>
+
 <% @whiskeys.each do |name| %>
-<%= name.name %>
+<h3><%= link_to name.name, whiskey_path(name) %></h3>
 
 <% end %>
