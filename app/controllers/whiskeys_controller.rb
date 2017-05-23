@@ -54,6 +54,12 @@ class WhiskeysController < ApplicationController
     redirect_to whiskey_path
   end
 
+  def add
+      current_user.whiskeys << Whiskey.find(params[:id])
+      redirect_to current_user
+  end
+
+
   private
 
     def set_whiskey!
