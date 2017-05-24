@@ -3,6 +3,17 @@
   <h3>Region: <%= @distiller.sub_region %></h3>
 <h3>Whiskey's from this Distiller</h3>
 
-      <% @distiller.whiskeys.each do |whiskey|  %>
+
+        <h3>Whiskeys from Distiller you like </h3>
+      <% @distiller.distiller_whiskeys_liked.each do |whiskey|  %>
+        <% if current_user.whiskeys.include?(whiskey) %>
        <h4><%= link_to "Name: #{whiskey.name}", whiskey_path(whiskey) %>  <%= whiskey.proof %>  Proof </h4>
+       <% end %>
       <% end %>
+
+      <h3>Other Whiskeys from Distiller you may like </h3>
+    <% @distiller.distiller_whiskeys_liked.each do |whiskey|  %>
+      <% if !current_user.whiskeys.include?(whiskey) %>
+     <h4><%= link_to "Name: #{whiskey.name}", whiskey_path(whiskey) %>  <%= whiskey.proof %>  Proof </h4>
+     <% end %>
+    <% end %>

@@ -1,14 +1,18 @@
 class DistillersController < ApplicationController
-  before_action :set_distiller!, except: [:create, :index, :new]
+  # before_action :set_distiller!, except: [:create, :index, :new]
 
 
   def index
 
-    @distillers = Distiller.all
-
+    if params[:user_id]
+      @distillers = User.find(params[:user_id]).distillers
+    else
+      @distillers = Distiller.all
+    end
   end
 
   def show
+      @distiller = Distiller.find(params[:id])
   end
 
   def edit

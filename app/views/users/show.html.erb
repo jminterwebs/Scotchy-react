@@ -1,12 +1,9 @@
 <h3><%= @user.name %></h3>
 
 
-Favorite Whiskeys: <%= @user.whiskeys.count %>
+<h2>Favorite Whiskeys: <%= @user.whiskey_count %></h2>
+<h2>Favorite Distillers: <%= @user.distillers_count %></h2>
 
 <% @user.whiskeys.each do |whiskey| %>
-  <%= whiskey.distiller.name %>
-  <%= whiskey.name %>
-  <%= whiskey.distiller.region.country %>
-
-
+  <%= link_to whiskey.distiller.name, user_distiller_path(@user, whiskey.distiller) %> | <%= whiskey.name %> | <%= whiskey.distiller.region.country %>
   <% end %>

@@ -12,9 +12,17 @@ class Distiller < ApplicationRecord
     self.region.sub_region
   end
 
+
+  def distiller_whiskeys_liked
+    self.whiskeys
+  end
+
   def region_attributes=(region)
     self.region = Region.find_or_create_by(country: :country, sub_region: :sub_region)
     self.region.update(region)
   end
+
+
+
 
 end

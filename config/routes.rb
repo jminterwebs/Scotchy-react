@@ -3,7 +3,13 @@ Rails.application.routes.draw do
 
   devise_for :users, :controllers => { :omniauth_callbacks => "users/omniauth_callbacks", sessions: 'users/sessions' }
   root 'static#index'
-  resources :users
+  resources :users, only: [:show] do
+    resources :whiskeys
+    resources :distillers, only: [:show, :index]
+    resources :region
+
+  end
+
   resources :whiskeys
     post '/whiskeys/:id/add' => 'whiskeys#add', :as => :add_whiskey
   resources :distillers

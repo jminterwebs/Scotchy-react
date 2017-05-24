@@ -20,4 +20,23 @@ class User < ApplicationRecord
 
 
 
+
+  def whiskey_count
+    self.whiskeys.count
+  end
+
+  def distillers
+    count = []
+
+    self.whiskeys.each do |whiskey|
+      count << whiskey.distiller
+    end
+    count.uniq
+  end
+
+  def distillers_count
+      distillers.count
+  end
+
+
 end
