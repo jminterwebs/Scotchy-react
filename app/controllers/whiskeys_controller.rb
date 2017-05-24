@@ -6,7 +6,11 @@ class WhiskeysController < ApplicationController
 
   def index
 
-    @whiskeys = Whiskey.all
+    if params[:user_id]
+      @whiskeys = User.find(params[:user_id]).whiskeys
+    else
+      @whiskeys = Whiskey.all
+    end
 
   end
 
