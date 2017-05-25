@@ -1,5 +1,5 @@
 class DistillersController < ApplicationController
-  # before_action :set_distiller!, except: [:create, :index, :new]
+   before_action :set_distiller!, except: [:create, :index, :new]
 
 
   def index
@@ -12,7 +12,7 @@ class DistillersController < ApplicationController
   end
 
   def show
-      @distiller = Distiller.find(params[:id])
+
   end
 
   def edit

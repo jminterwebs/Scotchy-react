@@ -16,7 +16,7 @@ class WhiskeysController < ApplicationController
 
 
   def show
-
+    
   end
 
   def new
@@ -59,7 +59,13 @@ class WhiskeysController < ApplicationController
   end
 
   def add
-      current_user.whiskeys << Whiskey.find(params[:id])
+      current_user.whiskeys << @whiskey
+      redirect_to current_user
+  end
+
+  def remove
+      current_user.whiskeys.delete(@whiskey)
+      current_user.save
       redirect_to current_user
   end
 
