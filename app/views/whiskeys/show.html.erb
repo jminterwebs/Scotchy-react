@@ -1,11 +1,15 @@
-<h1>Distiller: <%= @whiskey.distiller_name %></h1>
+
+
+<h1>Distiller: <%= link_to @whiskey.distiller_name ,user_distiller_path(current_user, @whiskey.distiller)  %></h1>
 <h2>Whiskey Name: <%= @whiskey.name %></h2>
   <ul>
-    <li>Country: <%= @whiskey.country %> </li>
+    <li>Country: <%=link_to @whiskey.country, region_path(@whiskey.distiller.region)  %> </li>
     <li>Region: <%= @whiskey.sub_region %></li>
   </ul>
 
   <%= link_to "Edit Whiskey", edit_whiskey_path(@whiskey)  %>
-  <%= link_to "Add to favorties",  add_whiskey_path, method: :post%>
-
-<!-- TODO: link to show pages for, counrty, region, distiller -->
+  <% if !current_user.whiskeys.include?(@whiskey) %>
+      <%= link_to "Add to favorties",  add_whiskey_path, method: :post%>
+  <% else %>
+      <%= link_to "Remove from favorties", remove_whiskey_path, method: :put %>
+  <% end %>
