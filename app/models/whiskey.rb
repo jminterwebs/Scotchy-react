@@ -4,6 +4,10 @@ class Whiskey < ApplicationRecord
   belongs_to :distiller
 
 
+  validates :name, presence: true
+  validates :name, uniqueness: true
+  validates :proof, presence: true
+
   accepts_nested_attributes_for :distiller
 
 

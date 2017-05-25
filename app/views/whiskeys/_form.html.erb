@@ -1,24 +1,43 @@
-<%= form_for @whiskey do |f| %>
 
-
-
-  <%= f.label :name %>
-  <%= f.text_field :name %>
-
-  <%= f.label :proof%>
-  <%= f.number_field :proof %>
-
-    <%= f.fields_for :distiller do |distill|  %>
-      Distiller <%= distill.label :name %>
-      <%= distill.text_field :name %>
-
-      <%= distill.fields_for :region do |r| %>
-        <%= r.label :country %>
-        <%= r.text_field :country %>
-
-        <%= r.label :region %>
-        <%= r.text_field :sub_region %>
+<% if @whiskey.errors.any? %>
+  <div id="errors">
+    <ul>
+      <% @whiskey.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
       <% end %>
-    <% end %>
-  <%= f.submit %>
+    </ul>
+  </div>
 <% end %>
+
+
+
+  <%= form_for @whiskey do |f| %>
+
+  <div class="field <%=' field_with_errors' if @whiskey.errors[:name].any? %>">
+    <%= f.label :name %>
+    <%= f.text_field :name %>
+  </div>
+  <div class="field <%=' field_with_errors' if @whiskey.errors[:proof].any? %>">
+    <%= f.label :proof%>
+    <%= f.number_field :proof %>
+  </div>
+
+      <%= f.fields_for :distiller do |distill|  %>
+      <div class="field <%=' field_with_errors' if @whiskey.distiller.errors[:name].any? %>">
+        Distiller <%= distill.label :name %>
+        <%= distill.text_field :name %>
+      </div>
+
+        <%= distill.fields_for :region do |r| %>
+          <div class="field <%=' field_with_errors' if @whiskey.distiller.region.errors[:country].any? %>">
+            <%= r.label :country %>
+            <%= r.text_field :country %>
+          </div>
+          <div class="field <%=' field_with_errors' if @whiskey.distiller.region.errors[:sub_region].any? %>">
+          <%= r.label :region %>
+          <%= r.text_field :sub_region %>
+        </div>
+        <% end %>
+      <% end %>
+    <%= f.submit %>
+  <% end %>
