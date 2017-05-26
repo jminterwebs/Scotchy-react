@@ -28,5 +28,10 @@ class Whiskey < ApplicationRecord
       self.distiller.update(distiller)
   end
 
+  def user_likes
+    self.users.count
+
+  end
+
 
 end
