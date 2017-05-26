@@ -1,6 +1,6 @@
 <h1>Distiller <%= @distiller.name %></h1>
 <h2>Country: <%= link_to @distiller.country_name, region_path(@distiller.region) %></h2>
-  <h3>Region: <%= @distiller.sub_region %></h3>
+  
 <h3>Whiskey's from this Distiller</h3>
 
 <% if !current_user.distillers.include?(@distiller) %>

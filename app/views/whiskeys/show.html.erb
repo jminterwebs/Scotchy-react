@@ -4,7 +4,7 @@
 <h2>Whiskey Name: <%= @whiskey.name %></h2>
   <ul>
     <li>Country: <%=link_to @whiskey.country, region_path(@whiskey.distiller.region)  %> </li>
-    <li>Region: <%= @whiskey.sub_region %></li>
+    
   </ul>
 
   <%= link_to "Edit Whiskey", edit_whiskey_path(@whiskey)  %>

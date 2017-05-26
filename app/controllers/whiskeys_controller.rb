@@ -76,7 +76,7 @@ class WhiskeysController < ApplicationController
     end
 
     def whiskey_params
-      params.require(:whiskey).permit(:name, :proof, distiller_attributes: [:name, region_attributes: [:country, :sub_region]])
+      params.require(:whiskey).permit(:name, :proof, distiller_attributes: [:name, region_attributes: [:country]])
     end
 
 end

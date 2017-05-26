@@ -46,7 +46,7 @@ class DistillersController < ApplicationController
   end
 
   def distiller_params
-    params.require(:distiller).permit(:name, :region_attributes[:country, :sub_region])
+    params.require(:distiller).permit(:name, :region_attributes[:country])
   end
 
 

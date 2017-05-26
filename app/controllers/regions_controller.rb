@@ -41,7 +41,7 @@ class RegionsController < ApplicationController
   end
 
   def region_params
-    params.require(:region).permit(:country, :sub_region)
+    params.require(:region).permit(:country)
   end
 
 end

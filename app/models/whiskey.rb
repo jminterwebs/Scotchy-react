@@ -1,12 +1,12 @@
 class Whiskey < ApplicationRecord
   has_many :user_whiskeys
   has_many :users, through: :user_whiskeys
-  belongs_to :distiller
-
-
-  validates :name, presence: true
-  validates :name, uniqueness: true
-  validates :proof, presence: true
+   belongs_to :distiller, optional: true
+  #
+  #
+  # validates :name, presence: true
+  # validates :name, uniqueness: true
+  # validates :proof, presence: true
 
   accepts_nested_attributes_for :distiller
 
@@ -19,12 +19,7 @@ class Whiskey < ApplicationRecord
     self.distiller.region.country
   end
 
-  def sub_region
-    self.distiller.region.sub_region
-  end
-
   def distiller_attributes=(distiller)
-
       self.distiller = Distiller.find_or_create_by(name: distiller[:name])
       self.distiller.region_attributes=(distiller[:region_attributes])
       self.distiller.update(distiller)

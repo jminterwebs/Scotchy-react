@@ -25,7 +25,6 @@ end
 10.times do
   Region.create!(
     country: Faker::GameOfThrones.city,
-    sub_region: Faker::LordOfTheRings.location
   )
 end
 
