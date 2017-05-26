@@ -7,3 +7,6 @@
   <%= link_to "Sign in", new_user_session_path %>
   <%= link_to "New User", new_user_registration_path  %>
 <% end %>
+<h2>Find whiskeys by:</h2>
+
+<%= link_to 'Name', whiskeys_path %> | <%= link_to 'Distillers', distillers_path %> | <%= link_to 'Region', regions_path %>

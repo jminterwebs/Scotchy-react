@@ -3,6 +3,8 @@
 
 <h3>Distillers</h3>
 <% @region.distillers.each do |distiller| %>
-  <%= link_to distiller.name, user_distiller_path(current_user, distiller) %>
+  <li>
+    <%= link_to distiller.name, user_distiller_path(current_user, distiller) %>
+  </li>
 
   <% end %>

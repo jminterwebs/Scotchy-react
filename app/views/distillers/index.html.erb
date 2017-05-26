@@ -1,5 +1,5 @@
 <h3>List of all current featured Distilleries</h3>
 
 <% @distillers.each do |distiller| %>
-<h4>  <%= link_to "Name: #{distiller.name}", distiller_path(distiller)  %> || Country: <%= distiller.country_name %> || Whiskeys from Distiller: <%= distiller.whiskeys.size %> </h4>
+<h4>  <%= link_to "Name: #{distiller.name}", distiller_path(distiller)  %> || Country: <%=link_to distiller.country_name, region_path(distiller.region) %> || Whiskeys from Distiller: <%= distiller.whiskeys.size %> </h4>
   <% end %>

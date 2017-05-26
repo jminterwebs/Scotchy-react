@@ -16,22 +16,21 @@ class WhiskeysController < ApplicationController
 
 
   def show
-    
+
   end
 
   def new
-
     @whiskey = Whiskey.new
     @distiller = @whiskey.build_distiller
     @region = @whiskey.distiller.build_region
-
   end
 
   def create
     @whiskey = Whiskey.new(whiskey_params)
 
     if @whiskey.save
-      redirect_to @whiskey
+      current_user.whiskeys << @whiskey
+      redirect_to current_user
     else
       render :new
     end
