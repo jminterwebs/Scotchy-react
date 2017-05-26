@@ -17,8 +17,9 @@ class Distiller < ApplicationRecord
 
 
   def region_attributes=(region)
-    self.region = Region.find_or_create_by(country: :country, sub_region: :sub_region)
-    self.region.update(region)
+    self.region = Region.find_or_create_by(country: region[:country], sub_region: region[:sub_region])
+
+
   end
 
 

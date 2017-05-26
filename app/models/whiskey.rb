@@ -24,13 +24,14 @@ class Whiskey < ApplicationRecord
   end
 
   def distiller_attributes=(distiller)
-      self.distiller = Distiller.find_or_create_by(name: :name)
+
+      self.distiller = Distiller.find_or_create_by(name: distiller[:name])
+      self.distiller.region_attributes=(distiller[:region_attributes])
       self.distiller.update(distiller)
   end
 
   def user_likes
     self.users.count
-
   end
 
 
