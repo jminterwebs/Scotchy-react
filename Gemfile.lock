@@ -60,6 +60,10 @@ GEM
     devise_invitable (1.7.2)
       actionmailer (>= 4.1.0)
       devise (>= 4.0.0)
+    dotenv (2.2.1)
+    dotenv-rails (2.2.1)
+      dotenv (= 2.2.1)
+      railties (>= 3.2, < 5.2)
     erubis (2.7.0)
     execjs (2.7.0)
     faker (1.7.3)
@@ -199,6 +203,7 @@ DEPENDENCIES
   coffee-rails (~> 4.2)
   devise
   devise_invitable
+  dotenv-rails
   faker
   high_voltage
   jbuilder (~> 2.5)

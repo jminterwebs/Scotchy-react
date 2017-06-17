@@ -8,9 +8,6 @@
     </ul>
   </div>
 <% end %>
-
-
-
   <%= form_for @whiskey do |f| %>
 
   <div class="field <%=' field_with_errors' if @whiskey.errors[:name].any? %>">
