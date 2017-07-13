@@ -1,0 +1,8 @@
+
+<%= form_tag( {:controller => "comments", :action => "create", :user_id => params[:user_id], :whiskey_id => params[:whiskey_id]})   do  %>
+    <%= hidden_field_tag(:user_id, params[:user_id]) %>
+    <%= hidden_field_tag(:whiskey_id, [:whiskey_id]) %>
+    <%= text_field_tag 'content' %>
+
+    <%= submit_tag 'Submit'%>
+  <% end %>

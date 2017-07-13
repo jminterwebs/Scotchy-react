@@ -3,7 +3,7 @@
 
 <% @whiskeys.each do |name| %>
 <li>
-  <%= link_to name.name, whiskey_path(name) %>   Liked by  <%= name.user_likes %> users</h3>
+  <%= link_to name.name, user_whiskey_path(current_user, name) %>   Liked by  <%= name.user_likes %> users</h3>
 </li>
 
 <% end %>

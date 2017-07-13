@@ -5,7 +5,7 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :trackable, :validatable
   devise :omniauthable, :omniauth_providers => [:facebook]
 
-
+  has_many :comments
   has_many :user_whiskeys
   has_many :whiskeys, through: :user_whiskeys
 

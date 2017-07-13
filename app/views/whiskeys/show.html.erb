@@ -4,7 +4,7 @@
 <h2>Whiskey Name: <%= @whiskey.name %></h2>
   <ul>
     <li>Country: <%=link_to @whiskey.country, region_path(@whiskey.distiller.region)  %> </li>
-    
+
   </ul>
 
   <%= link_to "Edit Whiskey", edit_whiskey_path(@whiskey)  %>
@@ -13,3 +13,10 @@
   <% else %>
       <%= link_to "Remove from favorties", remove_whiskey_path, method: :put %>
   <% end %>
+
+    <%= link_to "Add Comment",   new_user_whiskey_comment_path(current_user, @whiskey) %>
+
+    <% @whiskey.comments.each do |comment|%>
+      <%= comment.content %>
+
+    <% end %>

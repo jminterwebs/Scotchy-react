@@ -1,7 +1,8 @@
 class Whiskey < ApplicationRecord
   has_many :user_whiskeys
   has_many :users, through: :user_whiskeys
-   belongs_to :distiller, optional: true
+  has_many :comments
+  belongs_to :distiller, optional: true
   #
   #
   # validates :name, presence: true

@@ -29,6 +29,7 @@ class WhiskeysController < ApplicationController
     @whiskey = Whiskey.new(whiskey_params)
 
     if @whiskey.save
+      byebug
       current_user.whiskeys << @whiskey
       redirect_to current_user
     else
