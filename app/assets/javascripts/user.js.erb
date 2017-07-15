@@ -1,0 +1,25 @@
+
+$(function(){
+
+
+
+
+
+  $(".favWhiskey").on('click', function(){
+        $.get("/", function(data){
+      let list = $('.whiskeyList li').length
+
+      console.log(data.whiskeys)
+      if(list < data.whiskeys.length){
+          for(i = list; i <= data.whiskeys.length-1; i ++){
+
+              $('.whiskeyList').append('<li>' + data.whiskeys[i].name + '</li>')
+          }
+      }
+      })
+
+
+    })
+
+
+  })

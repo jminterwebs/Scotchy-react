@@ -15,8 +15,8 @@ class WhiskeysController < ApplicationController
     else
       @whiskeys = Whiskey.all
       respond_to do |f|
-        f.html {render :index}
         f.json {render json: @whiskeys}
+        f.html {render :index}
       end
     end
 
