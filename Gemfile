@@ -36,6 +36,7 @@ gem 'devise_invitable'
 gem 'high_voltage'
 gem 'pundit'
 gem 'omniauth-facebook'
+gem 'active_model_serializers'
 
 
 
