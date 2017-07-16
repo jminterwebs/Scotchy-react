@@ -13,7 +13,7 @@ $(function(){
       if(list < data.whiskeys.length){
           for(i = list; i <= data.whiskeys.length-1; i ++){
 
-              $('.whiskeyList').append('<li>' + data.whiskeys[i].name + '</li>')
+              $('.whiskeyList').append('<li>' + data.whiskeys[i].name + ' Liked by ' + data.whiskeys[i].user_likes +'</li><%= escape_javascript(render(:partial => "whiskeys/favWhiskey")) %>')
           }
       }
       })
