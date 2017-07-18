@@ -28,9 +28,9 @@ class Whiskey < ApplicationRecord
 
   def user_likes
     if self.users.count == 1
-      "#{self.users.count} user"
+      "#{self.users.count} other"
     else
-      "#{self.users.count} users"
+      "#{self.users.count} others"
     end
   end
 

@@ -3,23 +3,25 @@ $(function(){
 
 
 
-
-
   $(".favWhiskey").on('click', function(){
         $.get("/", function(data){
       let list = $('.whiskeyList li').length
-
-      console.log(data.whiskeys)
       if(list < data.whiskeys.length){
           for(i = list; i <= data.whiskeys.length-1; i ++){
-
-              $('.whiskeyList').append('<li>' + data.whiskeys[i].name + ' Liked by ' + data.whiskeys[i].user_likes +'</li><%= escape_javascript(render(:partial => "whiskeys/favWhiskey")) %>')
+              $('.whiskeyList').append('<li class="addComment">' + data.whiskeys[i].name + ' Liked by ' + data.whiskeys[i].user_likes +' <span> Add Comments</span><div class="commentForm"></div></li>')
           }
       }
-      })
-
-
     })
+  })
 
+  $('.whiskeyList').on('click', '.addComment', function(){
+
+
+      $( '.commentForm', this).empty().append('<form> <textarea></textarea><input type="submit"/></form>')
+      console.log(this)
 
   })
+
+
+
+})
