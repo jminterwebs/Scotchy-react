@@ -1,3 +1,4 @@
+
 class Distiller < ApplicationRecord
   has_many :whiskeys
   belongs_to :region, optional: true
@@ -10,7 +11,7 @@ class Distiller < ApplicationRecord
   def country_name
     self.region.country
   end
-  
+
   def region_attributes=(region)
     self.region = Region.find_or_create_by(country: region[:country])
   end

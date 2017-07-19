@@ -1,8 +1,8 @@
-$(function() {
-  $('li').on('click', function(event){
-    console.log(event)
-  })
-
-
-
-})
+// $(function() {
+//   $('li').on('click', function(event){
+//     console.log(event)
+//   })
+//
+//
+//
+// })

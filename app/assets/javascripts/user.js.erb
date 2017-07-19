@@ -8,20 +8,35 @@ $(function(){
       let list = $('.whiskeyList li').length
       if(list < data.whiskeys.length){
           for(i = list; i <= data.whiskeys.length-1; i ++){
-              $('.whiskeyList').append('<li class="addComment">' + data.whiskeys[i].name + ' Liked by ' + data.whiskeys[i].user_likes +' <span> Add Comments</span><div class="commentForm"></div></li>')
+              $('.whiskeyList').append('<li>' + data.whiskeys[i].name + ' Liked by ' + data.whiskeys[i].user_likes +' <span class="addComment"> Add Comments</span><span class="viewComments"> View Comments</span><div class="commentArea"></div></li>')
           }
       }
     })
   })
 
-  $('.whiskeyList').on('click', '.addComment', function(){
-
-
-      $( '.commentForm', this).empty().append('<form> <textarea></textarea><input type="submit"/></form>')
-      console.log(this)
-
+  $('.whiskeyList').on('click', 'span', function(){
+    let className = this.className
+     return comments(className)
   })
 
 
 
 })
+
+
+  function comments(className){
+
+  if (className == "addComment") {
+
+  $('.whiskeyList').on('click', `li, span.${className}` , function(){
+    $( '.commentArea', this).empty().append('<form> <textarea></textarea><input type="submit"/></form>')
+  })
+}
+ else {
+
+  $('.whiskeyList').on('click', `li, span.${className}`, function(){
+      $( '.commentArea', this).empty().append('<p>this area holds comments </p>')
+  })
+
+  }
+}
