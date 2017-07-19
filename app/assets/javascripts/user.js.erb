@@ -14,29 +14,26 @@ $(function(){
     })
   })
 
-  $('.whiskeyList').on('click', 'span', function(){
+  $('.whiskeyList').on('mouseover', 'span', function(event){
+    console.log(this.className)
     let className = this.className
-     return comments(className)
+
+    if (className == "addComment") {
+    $('.whiskeyList').on('click', `li, span.${className}` , function(){
+      $( '.commentArea', this).empty().append('<form> <textarea></textarea><input type="submit"/></form>')
+    })
+  }
+   else {
+
+    $('.whiskeyList').on('click', `li, span.${className}`, function(){
+        $( '.commentArea', this).empty().append('<p>this area holds comments </p>')
+    })
+
+    }
+
+
   })
 
 
 
 })
-
-
-  function comments(className){
-
-  if (className == "addComment") {
-
-  $('.whiskeyList').on('click', `li, span.${className}` , function(){
-    $( '.commentArea', this).empty().append('<form> <textarea></textarea><input type="submit"/></form>')
-  })
-}
- else {
-
-  $('.whiskeyList').on('click', `li, span.${className}`, function(){
-      $( '.commentArea', this).empty().append('<p>this area holds comments </p>')
-  })
-
-  }
-}
