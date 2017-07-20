@@ -3,7 +3,7 @@
 <h3 class="addComment"><%= @user.name %> </h3>
   <div class="formContainer"></div>
 
-  <h2 class="favWhiskey">Favorite Whiskeys</h2>
+  <h2 class="favWhiskey"><a href="#"> Favorite Whiskeys </a></h2>
 
 <div class="whiskeyList"></div>
 
@@ -11,7 +11,7 @@
 
 
 
-<h2><%= link_to "Favorite Distillers: #{@user.distillers_count}", user_distillers_path(@user) %></h2>
+<h2> Favorite Distillers: <%=  @user.distillers_count %></h2>
 
 <% @user.whiskeys.each do |whiskey| %>
   <li>
