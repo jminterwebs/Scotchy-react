@@ -8,33 +8,30 @@ $(function(){
       let list = $('.whiskeyList li').length
       if(list < data.whiskeys.length){
           for(i = list; i <= data.whiskeys.length-1; i ++){
-              $('.whiskeyList').append('<li>' + data.whiskeys[i].name + ' Liked by ' + data.whiskeys[i].user_likes +' <span class="addComment"> Add Comments</span><span class="viewComments"> View Comments</span><div class="commentArea"></div></li>')
+              $('.whiskeyList').append('<li>' + data.whiskeys[i].name + ' Liked by ' + data.whiskeys[i].user_likes +' <span onclick="comments(\'addComment\','+ data.whiskeys[i].id +')" class="addComment"> Add Comments</span><span onclick="comments(\'viewComments\','+ data.whiskeys[i].id +')" class="viewComments"> View Comments</span><div class="commentArea" id="'+ data.whiskeys[i].id +'"></div></li>')
           }
       }
     })
   })
 
-  $('.whiskeyList').on('mouseover', 'span', function(event){
-
-
-    comments(this.className)
-  })
-
-
+  // $('.whiskeyList').on('mouseover', 'span', function(event){
+  //
+  //
+  //   comments(this.className)
+  // })
 })
 
 
-function comments(className){
 
-$('.whiskeyList').on('click', `li, span.${className}` , function(event){
 
+function comments(className, id){
+  console.log(className)
   if(className == "addComment"){
-    $( '.commentArea', this).append('<form> <textarea></textarea><input type="submit"/></form>')
+    console.log(this)
+    $( `#${id}`).append('<form> <textarea></textarea><input type="submit"/></form>')
   } else if (className == "viewComments") {
-    $.get('/', function(data){
-      console.log(data)
-    })
-    event.stopPropagation()
+    console.log(this)
+    $( `#${id}`).empty().append('<p>Testing area please ignore</p>')
   }
-})
+
 }
