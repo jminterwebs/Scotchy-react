@@ -15,25 +15,26 @@ $(function(){
   })
 
   $('.whiskeyList').on('mouseover', 'span', function(event){
-    console.log(this.className)
-    let className = this.className
-
-    if (className == "addComment") {
-    $('.whiskeyList').on('click', `li, span.${className}` , function(){
-      $( '.commentArea', this).empty().append('<form> <textarea></textarea><input type="submit"/></form>')
-    })
-  }
-   else {
-
-    $('.whiskeyList').on('click', `li, span.${className}`, function(){
-        $( '.commentArea', this).empty().append('<p>this area holds comments </p>')
-    })
-
-    }
 
 
+    comments(this.className)
   })
 
 
-
 })
+
+
+function comments(className){
+
+$('.whiskeyList').on('click', `li, span.${className}` , function(event){
+
+  if(className == "addComment"){
+    $( '.commentArea', this).append('<form> <textarea></textarea><input type="submit"/></form>')
+  } else if (className == "viewComments") {
+    $.get('/', function(data){
+      console.log(data)
+    })
+    event.stopPropagation()
+  }
+})
+}
