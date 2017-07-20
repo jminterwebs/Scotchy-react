@@ -14,11 +14,7 @@ $(function(){
     })
   })
 
-  // $('.whiskeyList').on('mouseover', 'span', function(event){
-  //
-  //
-  //   comments(this.className)
-  // })
+
 })
 
 
@@ -27,11 +23,18 @@ $(function(){
 function comments(className, id){
   console.log(className)
   if(className == "addComment"){
-    console.log(this)
-    $( `#${id}`).append('<form> <textarea></textarea><input type="submit"/></form>')
+
+    $( `#${id}`).empty().append('<form> <textarea></textarea><input type="submit"/></form>')
   } else if (className == "viewComments") {
-    console.log(this)
-    $( `#${id}`).empty().append('<p>Testing area please ignore</p>')
+    $.get(`/whiskeys/${id}/comments`, function(data){
+    }).then( function(data){
+      let list = $(`#${id} li`).length
+      console.log(list)
+      for (i =list ; i < data.length; i ++){
+        $(`#${id}`).append(`<li> ${data[i].content} - ${data[i].user.name}</li>`)
+      }
+    })
+
   }
 
 }
