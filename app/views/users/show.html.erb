@@ -11,7 +11,9 @@
 
 
 
-<h2> Favorite Distillers: <%=  @user.distillers_count %></h2>
+<h2 class="favDistiller"> <a href="#"> Favorite Distillers</a></h2>
+  <div class="distillerList"></div>
+
 
 <% @user.whiskeys.each do |whiskey| %>
   <li>

@@ -15,9 +15,27 @@ $(function(){
   })
 
 
+  $('.favDistiller').on('click', function(){
+    $.get("/", function(data){
+
+      console.log(data)
+
+    })
+
+
+
+  })
+
+
+
+
 })
 
 
+
+
+
+// function getUserdata(){}  fill in get request to only ping server once for favorite user info
 
 
 function comments(className, id){
