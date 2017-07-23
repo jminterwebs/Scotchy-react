@@ -6,8 +6,16 @@ class DistillersController < ApplicationController
 
     if params[:user_id]
       @distillers = User.find(params[:user_id]).distillers
+      respond_to do |f|
+        f.json {render json: @distillers}
+        f.html {render :index}
+      end
     else
       @distillers = Distiller.all
+      respond_to do |f|
+        f.json {render json: @distillers}
+        f.html {render :index}
+      end
     end
   end
 
