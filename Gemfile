@@ -37,7 +37,7 @@ gem 'high_voltage'
 gem 'pundit'
 gem 'omniauth-facebook'
 gem 'active_model_serializers'
-
+gem 'jquery-turbolinks'
 
 
 group :development, :test do
