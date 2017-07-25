@@ -20,7 +20,13 @@ class DistillersController < ApplicationController
   end
 
   def show
-
+    if params[:id]
+      @distiller = Distiller.find(params[:id])
+      respond_to do |f|
+        f.json {render json: @distiller}
+        f.html {render :show}
+      end
+    end
   end
 
   def edit

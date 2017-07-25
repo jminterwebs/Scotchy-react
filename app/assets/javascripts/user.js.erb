@@ -23,14 +23,14 @@ $(function(){
   $('.favDistiller').on('click', function(event){
     event.preventDefault()
     $.get("/", function(data){
-
+      console.log(data)
       let list = $('.distillerList li ').length
 
       if(list < data.distillers.length){
 
         for(i= list; i <= data.distillers.length-1; i++){
 
-          $('.distillerList').append(`<li>  Disttler: ${data.distillers[i].name} | Region  ${data.distillers[i].region_name} `)
+          $('.distillerList').append(`<li>  Disttler: ${data.distillers[i].name} | Region  ${data.distillers[i].region_name} | <a href="#" onclick="otherWhiskeys(${data.distillers[i].id})"> Other Whiskeys </a>  <div class='distillerWhiskeyList_${data.distillers[i].id}'</div>`)
 
         }
 
@@ -49,7 +49,20 @@ $(function(){
 
 
 
+function otherWhiskeys(id){
+  event.preventDefault()
+    $.get(`/distillers/${id}`, function(data){
+      let list = $(`.distillerWhiskeyList_${id} li`).length
+      if(list < data.whiskeys.length){
+        for (i = list; i < data.whiskeys.length; i ++){
+        $(`.distillerWhiskeyList_${id}`).append(`<li>${data.whiskeys[i].name}</li>`)
+      }
 
+    }
+
+  })
+
+}
 
 
 
