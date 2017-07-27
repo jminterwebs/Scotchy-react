@@ -1,13 +1,14 @@
 $(document).on('turbolinks:load', function() {
 
 $.get('/', function(data){
-  console.log(data)
+
   favWhiskey(data)
   favDistiller(data)
 })
 
 
 })
+
 
 
 function favWhiskey(data){
@@ -27,7 +28,7 @@ function favDistiller(data){
   $('.favDistiller').on('click', function(event){
     event.preventDefault()
     let list = $('.distillerList li ').length
-    console.log(list)
+
       if(list < data.distillers.length){
         for(i= list; i <= data.distillers.length-1; i++){
           $('.distillerList').append(`<li>  Disttler: ${data.distillers[i].name} | Region  ${data.distillers[i].region_name} | <a href="#" onclick="otherWhiskeys(${data.distillers[i].id})"> Other Whiskeys </a>  <div class='distillerWhiskeyList_${data.distillers[i].id}'</div>`)
@@ -52,21 +53,53 @@ function otherWhiskeys(id){
 }
 
 function comments(className, id){
-  console.log(className)
+  console.log(id)
   if(className == "addComment"){
 
-    $( `#${id}`).empty().append('<form> <textarea></textarea><input type="submit"/></form>')
+    $( `#${id}`).empty().append(`<form><input type="hidden" value="${id}" name="whiskey_id" id="whiskey_id"/> <textarea id="content" name="content"></textarea><input type="submit"/></form>`)
+
+       addComment(id)
 
   } else if (className == "viewComments") {
     $.get(`/whiskeys/${id}/comments`, function(data){
     }).then( function(data){
       let list = $(`#${id} li`).length
       console.log(list)
+        $(`#${id}`).empty()
       for (i =list ; i < data.length; i ++){
         $(`#${id}`).append(`<li> ${data[i].content} - ${data[i].user.name}</li>`)
       }
     })
 
   }
+
+}
+
+
+
+function addComment(id){
+  console.log(id)
+  $('form').submit(function(event){
+    event.preventDefault()
+
+    var values = $(this).serialize();
+    console.log(values)
+
+      var posting = $.post(`/comments`, values);
+
+      posting.done(function(data) {
+          var comment = data;
+
+          console.log(data)
+        })
+
+
+  })
+
+  // var post = data;
+  //        $("#postTitle").text(post["title"]);
+  //        $("#postBody").text(post["description"]);
+
+
 
 }

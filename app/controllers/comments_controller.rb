@@ -19,14 +19,9 @@ class CommentsController < ApplicationController
   end
 
   def create
-    @comment = Comment.new(comment_params)
+    @comment = Comment.create(comment_params)
+    render json: @comment, status: 201
 
-    if @comment.save
-
-      redirect_to current_user
-    else
-      render :new
-    end
   end
 
   def show

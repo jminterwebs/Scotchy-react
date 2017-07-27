@@ -18,6 +18,8 @@ Rails.application.routes.draw do
     resources :comments
   end
 
+  resources :comments
+
     post '/whiskeys/:id/add' => 'whiskeys#add', :as => :add_whiskey
     put '/whiskeys/:id/delete' => 'whiskeys#remove', :as => :remove_whiskey
   resources :distillers
