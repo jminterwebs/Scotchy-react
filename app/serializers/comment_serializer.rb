@@ -3,13 +3,4 @@ class CommentSerializer < ActiveModel::Serializer
   belongs_to :user
   belongs_to :whiskey
 
-
-  def user_id
-    user_id = current_user.id
-  end
-
-
-
-
-
 end
