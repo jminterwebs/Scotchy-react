@@ -17,7 +17,8 @@ function favWhiskey(data){
     let list = $('.whiskeyList li').length
       if(list < data.whiskeys.length){
         for(i = list; i <= data.whiskeys.length-1; i ++){
-          $('.whiskeyList').append('<li>' + data.whiskeys[i].name + ' Liked by ' + data.whiskeys[i].user_likes +' <span onclick="comments(\'addComment\','+ data.whiskeys[i].id +')" class="addComment"> Add Comments</span><span onclick="comments(\'viewComments\','+ data.whiskeys[i].id +')" class="viewComments"> View Comments</span><div class="commentArea" id="'+ data.whiskeys[i].id +'"></div></li>')
+
+          $('.whiskeyList').append(`<li>${data.whiskeys[i].name} Liked by ${data.whiskeys[i].user_likes} <span onclick="comments(\'addComment\', ${data.whiskeys[i].id}, ${data.id})" class="addComment"> Add Comments</span><span onclick="comments(\'viewComments\', ${data.whiskeys[i].id})" class="viewComments"> View Comments</span><div class="commentArea" id="${data.whiskeys[i].id}"></div></li>`)
         }
     }
   })
@@ -52,22 +53,22 @@ function otherWhiskeys(id){
 
 }
 
-function comments(className, id){
-  console.log(id)
+function comments(className, whiskey_id, user_id){
+
   if(className == "addComment"){
 
-    $( `#${id}`).empty().append(`<form><input type="hidden" value="${id}" name="whiskey_id" id="whiskey_id"/> <textarea id="content" name="content"></textarea><input type="submit"/></form>`)
+    $( `#${whiskey_id}`).empty().append(`<form><input type="hidden" value="${whiskey_id}" name="whiskey_id" id="whiskey_id"/> <input type="hidden" value="${user_id}" name="user_id" id="user_id"/> <textarea id="content" name="content"></textarea><input type="submit"/></form>`)
 
-       addComment(id)
+       addComment()
 
   } else if (className == "viewComments") {
-    $.get(`/whiskeys/${id}/comments`, function(data){
+    $.get(`/whiskeys/${whiskey_id}/comments`, function(data){
     }).then( function(data){
-      let list = $(`#${id} li`).length
+      let list = $(`#${whiskey_id} li`).length
       console.log(list)
-        $(`#${id}`).empty()
+        $(`#${whiskey_id}`).empty()
       for (i =list ; i < data.length; i ++){
-        $(`#${id}`).append(`<li> ${data[i].content} - ${data[i].user.name}</li>`)
+        $(`#${whiskey_id}`).append(`<li> ${data[i].content} - ${data[i].user.name}</li>`)
       }
     })
 
@@ -77,8 +78,8 @@ function comments(className, id){
 
 
 
-function addComment(id){
-  console.log(id)
+function addComment(){
+
   $('form').submit(function(event){
     event.preventDefault()
 
