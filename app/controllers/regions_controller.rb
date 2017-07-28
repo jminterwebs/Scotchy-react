@@ -4,6 +4,10 @@ class RegionsController < ApplicationController
 
   def index
     @regions = Region.all
+      respond_to do |f|
+        f.json {render json: @regions}
+        f.html {render :index}
+      end
   end
 
   def show
