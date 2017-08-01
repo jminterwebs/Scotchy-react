@@ -35,16 +35,11 @@ class WhiskeysController < ApplicationController
 
   def create
     @whiskey = Whiskey.create(whiskey_params)
+    current_user.whiskeys << @whiskey
     render json: @whiskey, status: 201
     @distiller = @whiskey.build_distiller
     @region = @whiskey.distiller.build_region
-    if @whiskey.save
 
-
-      current_user.whiskeys << @whiskey
-
-
-    end
   end
 
   def edit
