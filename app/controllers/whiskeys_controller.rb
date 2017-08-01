@@ -64,6 +64,7 @@ class WhiskeysController < ApplicationController
   end
 
   def add
+      
       current_user.whiskeys << @whiskey
       redirect_to current_user
   end

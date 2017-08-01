@@ -55,7 +55,7 @@ IndexLists.prototype.whiskeyList = function(data){
   let whiskeyList = []
 
     for( let i=0; i <= data.length-1; i ++){
-    whiskeyList.push(`<li> ${data[i].name} </li>`)
+    whiskeyList.push(`<li id="${data[i].id}"> ${data[i].name} <span onCLick="addtoFavorites(${data[i].id})"> Add to Favorites </span></li>`)
     }
 
 
