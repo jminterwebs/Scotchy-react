@@ -61,7 +61,7 @@ function comments(className, whiskey_id, user_id){
 
   if(className == "addComment"){
 
-    $( `#${whiskey_id}`).empty().append(`<form><input type="hidden" value="${whiskey_id}" name="whiskey_id" id="whiskey_id"/> <input type="hidden" value="${user_id}" name="user_id" id="user_id"/> <textarea id="content" name="content"></textarea><input type="submit"/></form>`)
+    $( `#${whiskey_id}`).empty().append(`<form class="commenter"><input type="hidden" value="${whiskey_id}" name="whiskey_id" id="whiskey_id"/> <input type="hidden" value="${user_id}" name="user_id" id="user_id"/> <textarea id="content" name="content"></textarea><input type="submit"/></form>`)
 
        addComment()
 
@@ -84,7 +84,7 @@ function comments(className, whiskey_id, user_id){
 
 function addComment(){
 
-  $('form').submit(function(event){
+  $('.commenter').submit(function(event){
     event.preventDefault()
 
     var values = $(this).serialize();
@@ -93,8 +93,8 @@ function addComment(){
       var posting = $.post(`/comments`, values);
 
       posting.done(function(data) {
-          var comment = data;
 
+          comments("viewComments", data.whiskey_id, data.user_id)
           console.log(data)
         })
 
