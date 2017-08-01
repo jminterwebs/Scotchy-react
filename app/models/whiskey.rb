@@ -6,7 +6,7 @@ class Whiskey < ApplicationRecord
   #
   #
   # validates :name, presence: true
-  # validates :name, uniqueness: true
+  validates :name, uniqueness: true
   # validates :proof, presence: true
 
   accepts_nested_attributes_for :distiller
