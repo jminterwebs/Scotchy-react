@@ -19,7 +19,7 @@ function favWhiskey(data){
         if(list < data.whiskeys.length){
           for(i = list; i <= data.whiskeys.length-1; i ++){
 
-            $('.whiskeyList').append(`<li>${data.whiskeys[i].name} Liked by ${data.whiskeys[i].user_likes} <span onclick="comments(\'addComment\', ${data.whiskeys[i].id}, ${data.id})" class="addComment"> Add Comments</span><span onclick="comments(\'viewComments\', ${data.whiskeys[i].id})" class="viewComments"> View Comments</span><div class="commentArea" id="${data.whiskeys[i].id}"></div></li>`)
+            $('.whiskeyList').append(`<li>${data.whiskeys[i].name} | <span onclick="comments(\'addComment\', ${data.whiskeys[i].id}, ${data.id})" class="addComment"> Add Comments</span><span onclick="comments(\'viewComments\', ${data.whiskeys[i].id})" class="viewComments"> View Comments</span><div class="commentArea" id="${data.whiskeys[i].id}"></div></li>`)
           }
       }
     })
