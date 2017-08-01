@@ -1,10 +1,10 @@
 $(document).on('turbolinks:load', function() {
 
-$.get('/', function(data){
 
-  favWhiskey(data)
-  favDistiller(data)
-})
+
+  favWhiskey()
+  favDistiller()
+
 
 
 })
@@ -14,13 +14,15 @@ $.get('/', function(data){
 function favWhiskey(data){
   $(".favWhiskey").on('click', function(event){
     event.preventDefault()
-    let list = $('.whiskeyList li').length
-      if(list < data.whiskeys.length){
-        for(i = list; i <= data.whiskeys.length-1; i ++){
+    $.get('/', function(data){
+      let list = $('.whiskeyList li').length
+        if(list < data.whiskeys.length){
+          for(i = list; i <= data.whiskeys.length-1; i ++){
 
-          $('.whiskeyList').append(`<li>${data.whiskeys[i].name} Liked by ${data.whiskeys[i].user_likes} <span onclick="comments(\'addComment\', ${data.whiskeys[i].id}, ${data.id})" class="addComment"> Add Comments</span><span onclick="comments(\'viewComments\', ${data.whiskeys[i].id})" class="viewComments"> View Comments</span><div class="commentArea" id="${data.whiskeys[i].id}"></div></li>`)
-        }
-    }
+            $('.whiskeyList').append(`<li>${data.whiskeys[i].name} Liked by ${data.whiskeys[i].user_likes} <span onclick="comments(\'addComment\', ${data.whiskeys[i].id}, ${data.id})" class="addComment"> Add Comments</span><span onclick="comments(\'viewComments\', ${data.whiskeys[i].id})" class="viewComments"> View Comments</span><div class="commentArea" id="${data.whiskeys[i].id}"></div></li>`)
+          }
+      }
+    })
   })
 }
 
@@ -28,13 +30,15 @@ function favWhiskey(data){
 function favDistiller(data){
   $('.favDistiller').on('click', function(event){
     event.preventDefault()
-    let list = $('.distillerList li ').length
+    $.get('/', function(data){
+      let list = $('.distillerList li ').length
 
-      if(list < data.distillers.length){
-        for(i= list; i <= data.distillers.length-1; i++){
-          $('.distillerList').append(`<li>  Disttler: ${data.distillers[i].name} | Region  ${data.distillers[i].region_name} | <a href="#" onclick="otherWhiskeys(${data.distillers[i].id})"> Other Whiskeys </a>  <div class='distillerWhiskeyList_${data.distillers[i].id}'</div>`)
+        if(list < data.distillers.length){
+          for(i= list; i <= data.distillers.length-1; i++){
+            $('.distillerList').append(`<li>  Disttler: ${data.distillers[i].name} | Region  ${data.distillers[i].region_name} | <a href="#" onclick="otherWhiskeys(${data.distillers[i].id})"> Other Whiskeys </a>  <div class='distillerWhiskeyList_${data.distillers[i].id}'</div>`)
+          }
         }
-      }
+    })
   })
 }
 
