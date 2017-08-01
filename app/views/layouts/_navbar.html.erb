@@ -15,4 +15,19 @@
 <div class="indexList">
 
 </div>
-<form class="newWhiskeyForm" hidden><input name="whiskeystype="text"> </input> <input type="submit"/></form>
+<form id="new_whiskey" class="newWhiskeyForm" hidden>
+  <label for="whiskey">Name: </label>
+  <input id="whiskey_name" name="whiskey[name]" type="text" />
+
+  <label for="whiskey">Proof: </label>
+  <input id="whiskey_proof" name="whiskey[proof]" type="text" />
+
+  <label for="whiskey">Distiller: </label>
+  <input id="whiskey_distiller_name" name="whiskey[distiller_attributes][name]" type="text" />
+
+  <label for="whiskey">Region: </label>
+  <input id="whiskey_distiller__region_name" name="whiskey[distiller_attributes][region_attributes][country]" type="text" />
+
+  <input value="Create Whiskey" type="submit"/>
+
+</form>
