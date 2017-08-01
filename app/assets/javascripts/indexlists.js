@@ -102,7 +102,7 @@ function newWhiskeyForm(){
 }
 
 function addWhiskey(){
-  $('form').submit(function(event){
+  $('.newWhiskeyForm').submit(function(event){
     event.preventDefault()
 
 
