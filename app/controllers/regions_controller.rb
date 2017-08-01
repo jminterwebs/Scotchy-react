@@ -23,7 +23,7 @@ class RegionsController < ApplicationController
 
   def create
     @region = Region.new
-
+    
   end
 
 

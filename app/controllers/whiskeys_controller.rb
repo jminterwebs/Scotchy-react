@@ -5,6 +5,7 @@ class WhiskeysController < ApplicationController
 
 
   def index
+    # byebug
     if params[:user_id]
       @whiskeys = User.find(params[:user_id]).whiskeys
       respond_to do |f|
@@ -27,21 +28,22 @@ class WhiskeysController < ApplicationController
 
   end
 
-  def new
-    @whiskey = Whiskey.new
-    @distiller = @whiskey.build_distiller
-    @region = @whiskey.distiller.build_region
-  end
+  # def new
+  #   @whiskey = Whiskey.new
+  #
+  # end
 
   def create
-    @whiskey = Whiskey.new(whiskey_params)
-
+    @whiskey = Whiskey.create(whiskey_params)
+    render json: @whiskey, status: 201
+    @distiller = @whiskey.build_distiller
+    @region = @whiskey.distiller.build_region
     if @whiskey.save
-      byebug
+
+
       current_user.whiskeys << @whiskey
-      redirect_to current_user
-    else
-      render :new
+
+
     end
   end
 

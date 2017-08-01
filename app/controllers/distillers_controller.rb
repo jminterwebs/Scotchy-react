@@ -40,6 +40,7 @@ class DistillersController < ApplicationController
   def create
     @distiller = Distiller.new
 
+
   end
 
 
