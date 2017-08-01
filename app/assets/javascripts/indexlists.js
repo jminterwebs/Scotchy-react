@@ -55,7 +55,7 @@ IndexLists.prototype.whiskeyList = function(data){
   let whiskeyList = []
 
     for( let i=0; i <= data.length-1; i ++){
-    whiskeyList.push(`<li> ${data[i].name} Liked by ${data[i].user_likes}</li>`)
+    whiskeyList.push(`<li> ${data[i].name} </li>`)
     }
 
 
@@ -91,7 +91,7 @@ function newWhiskeyForm(){
 
   $('.newWhiskey').on('click', function(event){
     event.preventDefault()
-
+    $('.indexList').empty()
     $('.newWhiskeyForm').show()
 
   })
@@ -104,9 +104,17 @@ function newWhiskeyForm(){
 function addWhiskey(){
   $('form').submit(function(event){
     event.preventDefault()
-    console.log(event)
-    var values = $(this).serialize();
+
+
+    var values = $(this).serialize()
     console.log(values)
+
+
+    var posting = $.post('/whiskeys', values);
+
+    posting.done(function(data){
+      console.log(data)
+    })
   })
 
 }
