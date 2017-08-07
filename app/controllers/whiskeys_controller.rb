@@ -5,7 +5,7 @@ class WhiskeysController < ApplicationController
 
 
   def index
-    # byebug
+    #  byebug
     if params[:user_id]
       @whiskeys = User.find(params[:user_id]).whiskeys
       respond_to do |f|
@@ -25,7 +25,9 @@ class WhiskeysController < ApplicationController
 
 
   def show
-
+      respond_to do |f|
+        f.json{render json: @whiskey}
+      end
   end
 
   # def new
@@ -64,7 +66,7 @@ class WhiskeysController < ApplicationController
   end
 
   def add
-      
+
       current_user.whiskeys << @whiskey
       redirect_to current_user
   end
