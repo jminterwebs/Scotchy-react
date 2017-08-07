@@ -59,8 +59,8 @@ IndexLists.prototype.whiskeyList = function(data){
      whiskeyList.push(`<li id="${data[i].id}"> ${data[i].name} <span onCLick="addtoFavorites(${data[i].id})"> Add to Favorites </span> <span onClick="showInfo(${data[i].id})"> More info </li>`)
     }
 
-
-  $('.indexList').empty().append(whiskeyList)
+  $('.showList').empty()
+  $('.indexList').show().empty().append(whiskeyList)
 
 }
 
@@ -70,7 +70,8 @@ IndexLists.prototype.distillerList = function(data){
     for(let i=0; i <= data.length-1; i ++){
     distillerList.push(`<li> ${data[i].name} </li>`)
     }
-  $('.indexList').empty().append(distillerList)
+  $('.showList').empty()
+  $('.indexList').show().empty().append(distillerList)
 
 }
 
@@ -80,7 +81,9 @@ IndexLists.prototype.regionList = function(data){
     for(let i=0; i <= data.length-1; i ++){
     regionList.push(`<li> ${data[i].country} </li>`)
     }
-  $('.indexList').empty().append(regionList)
+  $
+  $('.showList').empty()
+  $('.indexList').show().empty().append(regionList)
 
 }
 
@@ -88,7 +91,7 @@ IndexLists.prototype.regionList = function(data){
 
 function newWhiskeyForm(){
 
-
+  $('.showList').empty()
 
   $('.newWhiskey').on('click', function(event){
     event.preventDefault()
