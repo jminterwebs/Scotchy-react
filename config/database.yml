@@ -19,5 +19,5 @@ production:
   encoding: utf8
   database: project_production
   pool: 5
-  username:
-  password:
+  username: ENV['POST_USERNAME']
+  password: ENV['POST_SECERT_KEY']
