@@ -1,5 +1,12 @@
 
-  <%= link_to "Home", root_path %>
+
+
+
+
+<nav>
+
+
+<%= link_to "Home", root_path %>
 <% if user_signed_in? %>
   <%= link_to "Log out", destroy_user_session_path, :method => :delete %>
 <% else %>
@@ -7,10 +14,13 @@
   <%= link_to "Sign in", new_user_session_path %>
   <%= link_to "New User", new_user_registration_path  %>
 <% end %>
-<h2>Find whiskeys by:</h2>
-<nav>
-<%= link_to 'Name', whiskeys_path, class: "whiskeys" %> | <%= link_to 'Distillers', distillers_path, class: "distillers" %> | <%= link_to 'Region', regions_path, class: "regions" %> | <%= link_to "Add new Whiskey!", new_whiskey_path, class: "newWhiskey"%>
+
 </nav>
+
+<h2>Find whiskeys by:</h2>
+
+<%= link_to 'Name', whiskeys_path, class: "whiskeys btn" %>  <%= link_to 'Distillers', distillers_path, class: "distillers btn" %>  <%= link_to 'Region', regions_path, class: "regions btn" %>  <%= link_to "Add new Whiskey!", new_whiskey_path, class: "newWhiskey btn"%>
+
 
 <div class="indexList">
 
