@@ -15,12 +15,12 @@ $(document).on('turbolinks:load', function() {
 
 
 
-
 indexMaker = () => {
-      $('nav a').on('click', function(event){
+      $('.btn').on('click', function(event){
         event.preventDefault()
 
-        let className = this.className
+        let className = this.className.substr(0, this.className.length - 4)
+        console.log(className)
         if( className != "newWhiskey"){
       $.get(`/${className}`, function(data){
         let indexLists = new IndexLists()
