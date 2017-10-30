@@ -38,7 +38,7 @@ gem 'pundit'
 gem 'omniauth-facebook'
 gem 'active_model_serializers'
 gem 'jquery-turbolinks'
-
+gem 'materialize-sass'
 
 group :development, :test do
   gem 'sqlite3'
