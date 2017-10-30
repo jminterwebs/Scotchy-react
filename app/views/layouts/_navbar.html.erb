@@ -5,16 +5,18 @@
 
 <nav>
 
-
-<%= link_to "Home", root_path %>
-<% if user_signed_in? %>
-  <%= link_to "Log out", destroy_user_session_path, :method => :delete %>
-<% else %>
-  <%= link_to "Sign in with Facebook", user_facebook_omniauth_authorize_path %>
-  <%= link_to "Sign in", new_user_session_path %>
-  <%= link_to "New User", new_user_registration_path  %>
-<% end %>
-
+  <div class="nav-wrapper">
+    <ul id="nav-mobile" class="right hide-on-med-and-down">
+      <li><%= link_to "Home", root_path %></li>
+      <% if user_signed_in? %>
+      <li><%= link_to "Log out", destroy_user_session_path, :method => :delete %></li>
+      <% else %>
+      <li><%= link_to "Sign in with Facebook", user_facebook_omniauth_authorize_path %></li>
+        <li><%= link_to "Sign in", new_user_session_path %></li>
+        <li><%= link_to "New User", new_user_registration_path %></li>
+      <% end %>
+    </ul>
+  </div>
 </nav>
 
 <h2>Find whiskeys by:</h2>
