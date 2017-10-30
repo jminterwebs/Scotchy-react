@@ -35,3 +35,4 @@ bower.json
 
 # Ignore pow environment settings
 rails .powenv
+public/assets/**
