@@ -6,7 +6,7 @@ class Whiskey < ApplicationRecord
   #
   #
   # validates :name, presence: true
-  # validates :name, uniqueness: true
+  validates :name, uniqueness: true
   # validates :proof, presence: true
 
   accepts_nested_attributes_for :distiller
@@ -27,7 +27,11 @@ class Whiskey < ApplicationRecord
   end
 
   def user_likes
-    self.users.count
+    if self.users.count == 1
+      "#{self.users.count} other"
+    else
+      "#{self.users.count} others"
+    end
   end
 
 

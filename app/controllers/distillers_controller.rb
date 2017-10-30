@@ -6,13 +6,27 @@ class DistillersController < ApplicationController
 
     if params[:user_id]
       @distillers = User.find(params[:user_id]).distillers
+      respond_to do |f|
+        f.json {render json: @distillers}
+        f.html {render :index}
+      end
     else
       @distillers = Distiller.all
+      respond_to do |f|
+        f.json {render json: @distillers}
+        f.html {render :index}
+      end
     end
   end
 
   def show
-
+    if params[:id]
+      @distiller = Distiller.find(params[:id])
+      respond_to do |f|
+        f.json {render json: @distiller}
+        f.html {render :show}
+      end
+    end
   end
 
   def edit
@@ -25,6 +39,7 @@ class DistillersController < ApplicationController
 
   def create
     @distiller = Distiller.new
+
 
   end
 

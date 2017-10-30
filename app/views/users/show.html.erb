@@ -1,13 +1,15 @@
-<h3><%= @user.name %></h3>
 
 
-<h2><%= link_to "Favorite Whiskeys: #{@user.whiskey_count}", user_whiskeys_path(@user) %></h2>
-<h2><%= link_to "Favorite Distillers: #{@user.distillers_count}", user_distillers_path(@user) %></h2>
+<h3 class="addComment"><%= @user.name %> </h3>
+  <div class="formContainer"></div>
 
-<% @user.whiskeys.each do |whiskey| %>
-  <li>
-  Distiller:  <%= link_to whiskey.distiller.name, user_distiller_path(@user, whiskey.distiller) %> | Whiskey Name: <%= whiskey.name %> | Region: <%= whiskey.distiller.region.country %>
-  </li>
-  <% end %>
+  <h2 class="favWhiskey"><a href="#"> Favorite Whiskeys </a></h2>
 
-  
+<div class="whiskeyList"></div>
+
+
+
+
+
+<h2 class="favDistiller"> <a href="#"> Favorite Distillers</a></h2>
+  <div class="distillerList"></div>

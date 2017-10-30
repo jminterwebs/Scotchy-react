@@ -5,36 +5,43 @@ class WhiskeysController < ApplicationController
 
 
   def index
-
+    #  byebug
     if params[:user_id]
       @whiskeys = User.find(params[:user_id]).whiskeys
+      respond_to do |f|
+       f.json {render json: @whiskeys}
+       f.html {render :index}
+
+      end
     else
       @whiskeys = Whiskey.all
+      respond_to do |f|
+        f.json {render json: @whiskeys}
+        f.html {render :index}
+      end
     end
 
   end
 
 
   def show
-
+      respond_to do |f|
+        f.json{render json: @whiskey}
+      end
   end
 
-  def new
-    @whiskey = Whiskey.new
-    @distiller = @whiskey.build_distiller
-    @region = @whiskey.distiller.build_region
-  end
+  # def new
+  #   @whiskey = Whiskey.new
+  #
+  # end
 
   def create
-    @whiskey = Whiskey.new(whiskey_params)
+    @whiskey = Whiskey.create(whiskey_params)
+    current_user.whiskeys << @whiskey
+    render json: @whiskey, status: 201
+    @distiller = @whiskey.build_distiller
+    @region = @whiskey.distiller.build_region
 
-    if @whiskey.save
-      byebug
-      current_user.whiskeys << @whiskey
-      redirect_to current_user
-    else
-      render :new
-    end
   end
 
   def edit
@@ -59,6 +66,7 @@ class WhiskeysController < ApplicationController
   end
 
   def add
+
       current_user.whiskeys << @whiskey
       redirect_to current_user
   end

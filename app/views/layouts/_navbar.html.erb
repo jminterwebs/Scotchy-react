@@ -1,12 +1,46 @@
 
-  <%= link_to "Home", root_path %>
-<% if user_signed_in? %>
-  <%= link_to "Log out", destroy_user_session_path, :method => :delete %>
-<% else %>
-  <%= link_to "Sign in with Facebook", user_facebook_omniauth_authorize_path %>
-  <%= link_to "Sign in", new_user_session_path %>
-  <%= link_to "New User", new_user_registration_path  %>
-<% end %>
+
+
+
+
+<nav>
+
+  <div class="nav-wrapper">
+    <ul id="nav-mobile" class="right hide-on-med-and-down">
+      <li><%= link_to "Home", root_path %></li>
+      <% if user_signed_in? %>
+      <li><%= link_to "Log out", destroy_user_session_path, :method => :delete %></li>
+      <% else %>
+      <li><%= link_to "Sign in with Facebook", user_facebook_omniauth_authorize_path %></li>
+        <li><%= link_to "Sign in", new_user_session_path %></li>
+        <li><%= link_to "New User", new_user_registration_path %></li>
+      <% end %>
+    </ul>
+  </div>
+</nav>
+
 <h2>Find whiskeys by:</h2>
 
-<%= link_to 'Name', whiskeys_path %> | <%= link_to 'Distillers', distillers_path %> | <%= link_to 'Region', regions_path %> | <%= link_to "Add new Whiskey!", new_whiskey_path %>
+<%= link_to 'Name', whiskeys_path, class: "whiskeys btn" %>  <%= link_to 'Distillers', distillers_path, class: "distillers btn" %>  <%= link_to 'Region', regions_path, class: "regions btn" %>  <%= link_to "Add new Whiskey!", new_whiskey_path, class: "newWhiskey btn"%>
+
+
+<div class="indexList row">
+
+</div>
+<div class="showList"></div>
+<form id="new_whiskey" class="newWhiskeyForm" hidden>
+  <label for="whiskey">Name: </label>
+  <input id="whiskey_name" name="whiskey[name]" type="text" />
+
+  <label for="whiskey">Proof: </label>
+  <input id="whiskey_proof" name="whiskey[proof]" type="text" />
+
+  <label for="whiskey">Distiller: </label>
+  <input id="whiskey_distiller_name" name="whiskey[distiller_attributes][name]" type="text" />
+
+  <label for="whiskey">Region: </label>
+  <input id="whiskey_distiller__region_name" name="whiskey[distiller_attributes][region_attributes][country]" type="text" />
+
+  <input value="Create Whiskey" type="submit"/>
+
+</form>

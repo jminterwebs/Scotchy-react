@@ -2,7 +2,15 @@ class CommentsController < ApplicationController
   before_action :set_comment!, except: [:create, :new, :index]
 
   def index
-    @comments = Comment.all
+
+    if params[:whiskey_id]
+      @comments = Whiskey.find(params[:whiskey_id]).comments
+      respond_to do |f|
+        f.json {render json: @comments}
+        f.html {render :index}
+      end
+    end
+
   end
 
 
@@ -11,14 +19,9 @@ class CommentsController < ApplicationController
   end
 
   def create
-    @comment = Comment.new(comment_params)
+    @comment = Comment.create(comment_params)
+    render json: @comment, status: 201
 
-    if @comment.save
-
-      redirect_to current_user
-    else
-      render :new
-    end
   end
 
   def show
