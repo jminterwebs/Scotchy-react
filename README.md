@@ -1,24 +1,9 @@
-# README
+# Scotchy
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Scotchy is a Rails app for Whiskey lovers. Users and like, add and comment on whiskeys. Users can also search for whiskeys by distiller or region. 
 
-Things you may want to cover:
 
-* Ruby version
+[Demo](https://rocky-river-65402.herokuapp.com/users/1)
 
-* System dependencies
+[Blog](https://medium.com/@johnverdone/scotchy-the-whiskey-social-app-afb5216d1526)
 
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
