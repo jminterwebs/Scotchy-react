@@ -57,19 +57,21 @@ IndexLists.prototype.whiskeyList = function(data){
 
     for( let i=0; i <= data.length-1; i ++){
 
-     whiskeyList.push(`<div id="${data[i].id}" class="col s12 m6">
-               <div class="card blue-grey darken-1">
-                 <div class="card-content white-text">
-                   <span class="card-title">${data[i].name}</span>
-                   <p>Distiller: ${data[i].distiller.name}</p>
-                 </div>
-                 <div class="card-action">
-                   <a onCLick="addtoFavorites(${data[i].id})"> Add to Favorites</span>
-                    <a onClick="showInfo(${data[i].id})"> More info </li>
-                 </div>
-               </div>
-             </div>
-     </div>`)
+     whiskeyList.push(`<li id="${data[i].id}">
+                        <div  class="col s12 m6 ${data[i].id}">
+                          <div class="card blue-grey darken-1">
+                            <div class="card-content white-text">
+                              <span class="card-title">${data[i].name}</span>
+                              <p>Distiller: ${data[i].distiller.name}</p>
+                            </div>
+                            <div class="card-action">
+                              <a onCLick="addtoFavorites(${data[i].id})"> Add to Favorites</a>
+                              <a onClick="showInfo(${data[i].id})"> More info </a>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </li>`)
 
     }
 
