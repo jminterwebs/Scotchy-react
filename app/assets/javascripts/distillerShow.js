@@ -10,6 +10,8 @@ function whiskeyShow(id){
         <h1>${data.name}</h1>
         <h3>Region: ${data.region_name}</h3>
     </div>`
+
+
      $('.indexList').hide()
      $('.showList').empty().append(distillerShow)
 
