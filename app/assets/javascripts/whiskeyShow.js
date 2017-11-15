@@ -3,10 +3,10 @@
 // # You can use CoffeeScript in this file: http://coffeescript.org/
 //
 function whiskeyShowInfo(id) {
-  nextShowing(id)
+  whiskeyNextShowing(id)
 }
 
-  function nextShowing(id){
+  function whiskeyNextShowing(id){
     $.get(`/whiskeys/${id}`, function(data){
 
     let whiskeyShow = `<div> <span onClick="prevInfo(${id})">Show Prev </span> <span onClick="nextInfo(${id})">Show Next </span>
@@ -29,11 +29,11 @@ function whiskeyShowInfo(id) {
     if (!ids[next]){
       next = 0
     }
-    nextShowing(ids[next])
+    whiskeyNextShowing(ids[next])
   }
 
 
-  function prevInfo(id) {
+  function whiskeyPrevInfo(id) {
 
     let ids =[]
     for(let i = 0; i < $('.indexList li').length; i++ ) {
@@ -47,5 +47,5 @@ function whiskeyShowInfo(id) {
 
     }
 
-    nextShowing(ids[next])
+    whiskeyNextShowing(ids[next])
   }

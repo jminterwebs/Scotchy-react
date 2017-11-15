@@ -1,9 +1,9 @@
 function distillerShowInfo(id){
-  whiskeyShow(id)
+  distillerNextShow(id)
 }
 
 
-function whiskeyShow(id){
+function distilerNextShow(id){
   $.get(`/distillers/${id}`, function(data){
     console.log(data)
     let distillerShow = `<div> <span onClick="prevInfo(${id})">Show Prev </span> <span onClick="nextInfo(${id})">Show Next </span>
