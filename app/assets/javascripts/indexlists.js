@@ -66,7 +66,7 @@ IndexLists.prototype.whiskeyList = function(data){
                             </div>
                             <div class="card-action">
                               <a onCLick="addtoFavorites(${data[i].id})"> Add to Favorites</a>
-                              <a onClick="showInfo(${data[i].id})"> More info </a>
+                              <a onClick="whiskeyShowInfo(${data[i].id})"> More info </a>
                             </div>
                           </div>
                         </div>
