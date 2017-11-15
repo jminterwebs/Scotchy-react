@@ -97,6 +97,7 @@ IndexLists.prototype.distillerList = function(data){
               </div>
             </div>`)
     }
+    
   $('.showList').empty()
   $('.indexList').show().empty().append(distillerList)
 
