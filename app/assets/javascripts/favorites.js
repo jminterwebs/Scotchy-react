@@ -1,11 +1,4 @@
 $(document).on('turbolinks:load', function() {
-//   addtoFavorites()
-// })
-//
-
-
-
-/// onClick Functions no need for document ready
 
 
 function addtoFavorites(id){
@@ -17,4 +10,5 @@ function addtoFavorites(id){
   posting.done(function(data){
     console.log(data)
   })
-}
+
+}})
