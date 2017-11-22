@@ -115,7 +115,7 @@ IndexLists.prototype.regionList = function(data){
                 </div>
                 <div class="card-action">
                   <a onCLick="addtoFavorites(${data[i].id})"> Add to Favorites</span>
-                   <a onClick="whiskeyShowInfo(${data[i].id})"> More info </li>
+                   <a onClick="regionShowInfo(${data[i].id})"> More info </li>
                 </div>
               </div>
             </div>`)
