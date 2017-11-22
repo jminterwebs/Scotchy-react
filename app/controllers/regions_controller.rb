@@ -11,7 +11,9 @@ class RegionsController < ApplicationController
   end
 
   def show
-    @region = Region.find(params[:id])
+    respond_to do |f|
+      f.json{render json: @region}
+    end
   end
 
   def edit
@@ -23,7 +25,7 @@ class RegionsController < ApplicationController
 
   def create
     @region = Region.new
-    
+
   end
 
 
