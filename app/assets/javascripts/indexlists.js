@@ -91,7 +91,6 @@ IndexLists.prototype.distillerList = function(data){
                   <p>Distiller: ${data[i].name}</p>
                 </div>
                 <div class="card-action">
-                  <a onCLick="addtoFavorites(${data[i].id})"> Add to Favorites</span>
                    <a onClick="distillerShowInfo(${data[i].id})"> More info </li>
                 </div>
               </div>
